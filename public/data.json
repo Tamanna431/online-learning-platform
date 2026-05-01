@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.8,
+    "level": "Beginner",
+    "description": "Learn full-stack web development from scratch.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    "category": "Development"
+  },
+  {
+    "id": 2,
+    "title": "Advanced JavaScript Mastery",
+    "instructor": "Sarah Smith",
+    "duration": "15 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Deep dive into JavaScript concepts and advanced patterns.",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
+    "category": "Development"
+  },
+  {
+    "id": 3,
+    "title": "React JS for Beginners",
+    "instructor": "Michael Brown",
+    "duration": "12 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Build dynamic web apps using React JS.",
+    "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
+    "category": "Development"
+  },
+  {
+    "id": 4,
+    "title": "UI/UX Design Fundamentals",
+    "instructor": "Emily Johnson",
+    "duration": "10 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Learn the basics of UI/UX design principles.",
+    "image": "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e",
+    "category": "Design"
+  },
+  {
+    "id": 5,
+    "title": "Python for Data Science",
+    "instructor": "David Wilson",
+    "duration": "18 hours",
+    "rating": 4.9,
+    "level": "Intermediate",
+    "description": "Analyze data and build models using Python.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    "category": "Data Science"
+  },
+  {
+    "id": 6,
+    "title": "Machine Learning A-Z",
+    "instructor": "Andrew Lee",
+    "duration": "25 hours",
+    "rating": 4.8,
+    "level": "Advanced",
+    "description": "Master machine learning algorithms and projects.",
+    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72",
+    "category": "Data Science"
+  },
+  {
+    "id": 7,
+    "title": "Digital Marketing Essentials",
+    "instructor": "Sophia Martinez",
+    "duration": "8 hours",
+    "rating": 4.4,
+    "level": "Beginner",
+    "description": "Learn SEO, social media, and online marketing strategies.",
+    "image": "https://images.unsplash.com/photo-1557838923-2985c318be48",
+    "category": "Marketing"
+  },
+  {
+    "id": 8,
+    "title": "Graphic Design Masterclass",
+    "instructor": "Chris Evans",
+    "duration": "14 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Create stunning visuals using design tools.",
+    "image": "https://images.unsplash.com/photo-1509395176047-4a66953fd231",
+    "category": "Design"
+  },
+  {
+    "id": 9,
+    "title": "Node.js Backend Development",
+    "instructor": "Daniel Clark",
+    "duration": "16 hours",
+    "rating": 4.7,
+    "level": "Intermediate",
+    "description": "Build scalable backend APIs using Node.js.",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+    "category": "Development"
+  },
+  {
+    "id": 10,
+    "title": "Cyber Security Basics",
+    "instructor": "Olivia Taylor",
+    "duration": "9 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Understand the fundamentals of cyber security.",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
+    "category": "Security"
+  },
+  {
+    "id": 11,
+    "title": "Mobile App Development with Flutter",
+    "instructor": "James Anderson",
+    "duration": "22 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Build cross-platform mobile apps using Flutter.",
+    "image": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f",
+    "category": "Development"
+  },
+  {
+    "id": 12,
+    "title": "Cloud Computing Fundamentals",
+    "instructor": "Robert White",
+    "duration": "13 hours",
+    "rating": 4.6,
+    "level": "Beginner",
+    "description": "Learn cloud services and deployment basics.",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
+    "category": "Cloud"
+  }
+]
