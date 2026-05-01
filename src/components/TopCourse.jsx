@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Star, User, Clock, ArrowRight, TrendingUp } from "lucide-react"
+import { Star, User, Clock, ArrowRight, TrendingUp,FireExtinguisherIcon } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export default function TopCourses() {
@@ -38,7 +38,8 @@ export default function TopCourses() {
   return (
     <section className="py-12">
       <h2 className="text-4xl font-bold text-center mb-10">
-        🔥 Popular <span className="text-primary">Courses</span>
+        🔥
+         Popular <span className="text-primary">Courses</span>
       </h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -47,7 +48,7 @@ export default function TopCourses() {
             key={course.id} 
             className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
           >
-            {/* Course Image */}
+            
             <figure className="px-4 pt-4">
               <img 
                 src={course.image} 
@@ -66,7 +67,7 @@ export default function TopCourses() {
                 </div>
               </div>
 
-              {/* Course Title */}
+              
               <h3 className="card-title text-lg mb-2">{course.title}</h3>
               
               {/* Instructor & Duration */}
@@ -81,7 +82,7 @@ export default function TopCourses() {
                 </div>
               </div>
 
-              {/* Level Badge */}
+             
               <div className="mb-4">
                 <span className={`badge badge-sm ${
                   course.level === 'Beginner' ? 'badge-success' :
@@ -106,7 +107,7 @@ export default function TopCourses() {
         ))}
       </div>
 
-      {/* View All Courses Button */}
+      
       <div className="text-center mt-10">
         <Link href="/courses" className="btn btn-outline btn-lg">
           View All Courses
