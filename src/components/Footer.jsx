@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer p-10  bg-base-200 shadow-md sticky text-base-content mt-auto flex justify-between gap-4">
+    <footer className="footer p-10 mx-auto bg-base-200 shadow-md sticky text-base-content mt-auto flex justify-between gap-4">
       <div>
         <span className="footer-title">SkillSphere</span>
         <p> hello@skillsphere.com</p>

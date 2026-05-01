@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function Navbar() {
   return (
-    <nav className="navbar bg-base-100 shadow-md px-4 md:px-8 sticky top-0 z-50">
+    <nav className="navbar bg-base-100 shadow-md px-4 mx-auto md:px-8 sticky top-0 z-50">
       {/* Logo Section - Left */}
       <div className="flex-1">
         <Link href="/" className="flex items-center gap-2">

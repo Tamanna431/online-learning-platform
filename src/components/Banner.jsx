@@ -1,11 +1,9 @@
-import Image from "next/image"; 
+import Image from "next/image";
 
 
 
 const Banner = () => {
- 
-  const backgroundImage = '/images.png'; 
-
+  //const backgroundImage = '/images.png'; 
   return (
     <div className="relative bg-base-100 min-h-[500px] py-12 px-4 overflow-hidden mx-auto">
       <div className="absolute inset-0 z-0">
@@ -42,22 +40,9 @@ const Banner = () => {
               width={900}
               height={700}
               />
-              
-
-             
-
-             
-
-              
-
               </div>
-
-            
           </div>
         </div>
-
-        
-
       </div>
     </div>
   );
