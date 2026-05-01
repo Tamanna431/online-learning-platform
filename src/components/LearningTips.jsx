@@ -24,12 +24,12 @@ export default function LearningTips() {
     {
       icon: <Clock className="w-5 h-5" />,
       title: "Set Daily Goals",
-      description: "Dedicate at least 2 hours daily for focused learning"
+      description: "Dedicate at least 7 hours daily for focused learning"
     },
     {
       icon: <Target className="w-5 h-5" />,
       title: "Weekly Planning",
-      description: "Commit at least 10 hours per week to your courses"
+      description: "Commit at least 45 hours per week to your courses"
     },
     {
       icon: <BookOpen className="w-5 h-5" />,

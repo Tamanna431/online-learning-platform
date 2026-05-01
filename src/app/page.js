@@ -1,6 +1,7 @@
 import Banner from "@/components/Banner";
 import LearningTips from "@/components/LearningTips";
 import TopCourse from "@/components/TopCourse";
+import InstructorCard from "@/components/InstructorCard";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
     <Banner/>
     <TopCourse/>
     <LearningTips/>
+    <InstructorCard/>
 
    </div>
   );
