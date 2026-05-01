@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className="hidden md:flex flex-6 justify-center items-center">
         <div className="flex gap-2">
           <Link href="/" className="btn btn-ghost btn-sm ">Home</Link>
-          <Link href="/courses" className="btn btn-ghost btn-sm">Courses</Link>
+          <Link href="/Courses" className="btn btn-ghost btn-sm">Courses</Link>
           <Link href="/my-profile" className="btn btn-ghost btn-sm">Profile</Link>
         </div>
       </div>
@@ -42,7 +42,7 @@ export default function Navbar() {
           </div>
           <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/courses">Courses</Link></li>
+            <li><Link href="/Courses">Courses</Link></li>
             <li><Link href="/my-profile">Profile</Link></li>
             <li><Link href="/register">SignUp</Link></li>
             <li><Link href="/login">SignIn</Link></li>

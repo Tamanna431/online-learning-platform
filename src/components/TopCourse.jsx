@@ -106,8 +106,6 @@ export default function TopCourses() {
           </div>
         ))}
       </div>
-
-      
       <div className="text-center mt-10">
         <Link href="/courses" className="btn btn-outline btn-lg">
           View All Courses
