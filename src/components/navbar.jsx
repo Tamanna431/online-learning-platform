@@ -20,7 +20,7 @@ export default function Navbar() {
       </div>
 
       {/* Navigation Links - Center (Desktop) */}
-      <div className="hidden md:flex flex-1 justify-center">
+      <div className="hidden md:flex flex-6 justify-center items-center">
         <div className="flex gap-2">
           <Link href="/" className="btn btn-ghost btn-sm">Home</Link>
           <Link href="/courses" className="btn btn-ghost btn-sm">Courses</Link>
