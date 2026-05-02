@@ -66,23 +66,18 @@ export default function InstructorCard() {
               </figure>
 
               <div className="card-body items-center text-center p-6">
-                {/* Name & Role */}
                 <h3 className="card-title text-lg mb-1">{instructor.name}</h3>
                 <p className="text-sm text-primary font-medium mb-2">
                   {instructor.role}
                 </p>
 
-                {/* Specialty Badge */}
+                
                 <span className="badge badge-outline badge-sm mb-3">
                   {instructor.specialty}
                 </span>
-
-                {/* Bio */}
                 <p className="text-sm text-base-content/70 mb-4 line-clamp-2">
                   {instructor.bio}
                 </p>
-
-                {/* Rating & Students */}
                 <div className="flex items-center gap-4 mb-4">
                   <div className="flex items-center gap-1">
                     <Star className="w-4 h-4 fill-warning text-warning" />
