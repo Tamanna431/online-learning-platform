@@ -37,8 +37,6 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* ২. Navigation Links (Center Side) */}
-      {/* hidden sm:flex করেছি যাতে মোবাইলে ভাঙা দেখায় না */}
       <div className="flex-5 justify-center hidden sm:flex">
         <ul className="menu menu-horizontal px-1 gap-4">
           <li>
@@ -60,7 +58,7 @@ export default function Navbar() {
         {loading ? (
           <div className="loading loading-spinner loading-sm"></div>
         ) : user ? (
-          // লগইন করা ইউজারের জন্য Avatar
+          
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -79,7 +77,7 @@ export default function Navbar() {
             </ul>
           </div>
         ) : (
-          // লগইন না করা ইউজারের জন্য বাটন
+         
           <div className="flex gap-2">
             <Link href="/log-in" className="btn btn-ghost">SignIn</Link>
             <Link href="/signUp" className="btn btn-primary">SignUp</Link>
