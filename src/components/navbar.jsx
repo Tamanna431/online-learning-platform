@@ -79,7 +79,7 @@ export default function Navbar() {
             </ul>
           </div>
         ) : (
-          // লগইন না করা ইউজারের জন্য বাটন
+        
           <div className="flex gap-2">
             <Link href="/log-in" className="btn btn-ghost">SignIn</Link>
             <Link href="/signUp" className="btn btn-primary">SignUp</Link>
