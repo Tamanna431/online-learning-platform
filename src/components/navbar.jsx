@@ -1,53 +1,90 @@
 "use client"
 import Link from "next/link"
-import Image from "next/image"
+import { useEffect, useState } from "react"
+import { authClient } from "@/lib/auth-client"
 
 export default function Navbar() {
+  const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const { data } = await authClient.getSession()
+        setUser(data?.user || null)
+      } catch (error) {
+        console.error("Auth check error:", error)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    checkAuth()
+  }, [])
+
+  const handleLogout = async () => {
+    await authClient.signOut()
+    window.location.reload()
+  }
+
   return (
-    <nav className="navbar bg-base-100 shadow-md px-4 mx-auto md:px-8 sticky top-0 z-50">
-      {/* Logo Section - Left */}
+    <nav className="navbar bg-base-100 shadow-lg sticky top-0 z-50">
+      
+      {/* ১. Logo (Left Side) */}
       <div className="flex-1">
-        <Link href="/" className="flex items-center gap-2">
-          <Image 
-            src="/logo.png"
-            alt="SkillSphere Logo" 
-            width={32} 
-            height={32} 
-            className="w-8 h-8 object-contain"
-          />
-          <h3 className="font-bold text-xl">SkillSphere</h3>
+        <Link href="/" className="btn btn-ghost text-xl font-bold">
+          🎓 SkillSphere
         </Link>
       </div>
 
-      {/* Navigation Links - Center (Desktop) */}
-      <div className="hidden md:flex flex-6 justify-center items-center">
-        <div className="flex gap-2">
-          <Link href="/" className="btn btn-ghost btn-sm ">Home</Link>
-          <Link href="/Courses" className="btn btn-ghost btn-sm">Courses</Link>
-          <Link href="/my-profile" className="btn btn-ghost btn-sm">Profile</Link>
-        </div>
+      {/* ২. Navigation Links (Center Side) */}
+      {/* hidden sm:flex করেছি যাতে মোবাইলে ভাঙা দেখায় না */}
+      <div className="flex-5 justify-center hidden sm:flex">
+        <ul className="menu menu-horizontal px-1 gap-4">
+          <li>
+            <Link href="/" className="font-medium hover:text-primary">Home</Link>
+          </li>
+          <li>
+            <Link href="/Courses" className="font-medium hover:text-primary">Courses</Link>
+          </li>
+          {user && (
+            <li>
+              <Link href="/my-profile" className="font-medium hover:text-primary">Profile</Link>
+            </li>
+          )}
+        </ul>
       </div>
 
-      {/* Auth Buttons - Right */}
-      <div className="flex-none flex gap-2">
-        <Link href="/register" className="btn btn-ghost btn-sm hidden sm:flex">SignUp</Link>
-        <Link href="/login" className="btn btn-primary btn-sm">SignIn</Link>
-        
-        {/* Mobile Menu */}
-        <div className="dropdown dropdown-end md:hidden">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-square">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
+      {/* . Auth Buttons / Avatar (Right Side) */}
+      <div className="flex justify-end">
+        {loading ? (
+          <div className="loading loading-spinner loading-sm"></div>
+        ) : user ? (
+          // লগইন করা ইউজারের জন্য Avatar
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="User avatar" src={user.image || "https://ui-avatars.com/api/?name=User"} />
+              </div>
+            </div>
+            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+              <li>
+                <Link href="/my-profile" className="justify-between">
+                  Profile
+                </Link>
+              </li>
+              <li>
+                <button onClick={handleLogout} className="text-error">Logout</button>
+              </li>
+            </ul>
           </div>
-          <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/Courses">Courses</Link></li>
-            <li><Link href="/my-profile">Profile</Link></li>
-            <li><Link href="/register">SignUp</Link></li>
-            <li><Link href="/login">SignIn</Link></li>
-          </ul>
-        </div>
+        ) : (
+          // লগইন না করা ইউজারের জন্য বাটন
+          <div className="flex gap-2">
+            <Link href="/log-in" className="btn btn-ghost">SignIn</Link>
+            <Link href="/signUp" className="btn btn-primary">SignUp</Link>
+          </div>
+        )}
       </div>
     </nav>
   )

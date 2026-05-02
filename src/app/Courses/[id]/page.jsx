@@ -1,35 +1,33 @@
 
 import Link from "next/link"
-// import { notFound, redirect } from "next/navigation"
-// import { cookies } from "next/headers"
-// import { auth } from "@/lib/auth" // আপনার BetterAuth কনফিগ ফাইলের পথ
+ import { notFound, redirect } from "next/navigation"
+ import { cookies } from "next/headers"
+ import { auth } from "@/lib/auth" 
 import { 
   Star, Clock, User, BookOpen, CheckCircle, 
   ArrowLeft, Award, ShieldCheck 
 } from "lucide-react"
 
-// 🔥 Async Server Component (Fast & SEO Friendly)
 export default async function CourseDetailsPage({ params }) {
-  const { id } = await params // Next.js 15+ requires await for params
+  const { id } = await params 
 
-//   // 🔒 Protected Route Logic
-//   try {
-//     const session = await auth.api.getSession({
-//       headers: new Headers({
-//         cookie: cookies().toString(),
-//       }),
-//     })
+   try {
+    const session = await auth.api.getSession({
+       headers: new Headers({
+         cookie: cookies().toString(),
+       }),
+     })
     
-//     if (!session?.user) {
-//       // লগইন না থাকলে Login পেজে পাঠাবে, লগইন শেষে এখানেই ফিরে আসবে
-//       redirect(`/login?callbackUrl=/courses/${id}`)
-//     }
-//   } catch (error) {
-//     // ডেভেলপমেন্টে অথ সেটআপ না থাকলে এই এরর ইগনোর করবে
-//     console.warn("Auth check skipped in development mode")
-//   }
+     if (!session?.user) {
+      
+      redirect(`/log-in?callbackUrl=/Courses/${id}`)
+     }
+   } catch (error) {
+    
+     console.warn("Auth check skipped in development mode")
+  }
 
-  // 📦 Fetch Course Data
+  //  Fetch Course Data
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
   const res = await fetch(`${baseUrl}/data.json`, {
     next: { revalidate: 3600 },
@@ -38,13 +36,13 @@ export default async function CourseDetailsPage({ params }) {
   const courses = await res.json()
   const course = courses.find((c) => c.id == id)
 
-//   if (!course) notFound() // কোর্স না পেলে 404 পেজে যাবে
+   if (!course) notFound()
 
   return (
     <div className="min-h-screen bg-base-200 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
-        {/* 🔙 Back Navigation */}
+        {/*Back Navigation */}
         <Link 
           href="/Courses" 
           className="inline-flex items-center gap-2 text-base-content/70 hover:text-primary mb-6 transition-colors font-medium"
@@ -54,7 +52,7 @@ export default async function CourseDetailsPage({ params }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          {/* 📖 Main Content Area */}
+          {/*Main Content Area */}
           <div className="lg:col-span-2 space-y-8">
             
             {/* Hero Image */}
@@ -101,7 +99,7 @@ export default async function CourseDetailsPage({ params }) {
               </p>
             </div>
 
-            {/* 📚 Static Curriculum Section */}
+            {/* Static Curriculum Section */}
             <div className="card bg-base-100 shadow-xl border border-base-300">
               <div className="card-body">
                 <h2 className="card-title text-2xl mb-6 flex items-center gap-2 text-primary">
@@ -125,7 +123,7 @@ export default async function CourseDetailsPage({ params }) {
             </div>
           </div>
 
-          {/* 🛡️ Sticky Sidebar */}
+          {/* Sticky Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 card bg-base-100 shadow-xl border border-base-300">
               <div className="card-body">
