@@ -1,15 +1,14 @@
 import Link from "next/link"
 import { redirect } from "next/navigation"
-import { cookies, headers } from "next/headers" // ✅ headers import করুন
-import { auth } from "@/lib/auth"
+import { cookies, headers } from "next/headers" 
 
 export default async function MyProfilePage() {
   try {
-    // ✅ cookies() await করতে হবে
+    
     const cookieStore = await cookies()
     
     const session = await auth.api.getSession({
-      headers: await headers(), // ✅ headers() ও await করতে হবে
+      headers: await headers(), 
       cookies: cookieStore.toString(),
     })
 
@@ -71,6 +70,6 @@ export default async function MyProfilePage() {
     )
   } catch (error) {
     console.error("Profile error:", error)
-   // redirect("/login")
+    redirect("/log-in")
   }
 }
