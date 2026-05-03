@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
+    
   },
   "dependencies": {
     "@better-auth/mongo-adapter": "^1.6.9",
@@ -15,10 +16,11 @@
     "better-auth": "^1.6.9",
     "lucide-react": "^1.14.0",
     "mongodb": "^7.2.0",
-    "next": "16.2.4",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "react-hot-toast": "^2.6.0"
+    "next": "^15.4.6",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-hot-toast": "^2.6.0",
+    "swiper": "^12.1.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -28,4 +30,5 @@
     "eslint-config-next": "16.2.4",
     "tailwindcss": "^4"
   }
+ 
 }

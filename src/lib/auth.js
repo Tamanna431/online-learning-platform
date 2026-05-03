@@ -1,6 +1,8 @@
 import { betterAuth } from "better-auth"
 import { MongoClient } from "mongodb"
 import { mongodbAdapter } from "better-auth/adapters/mongodb"
+import { nextCookies } from "better-auth/next-js"
+
 
 const client = new MongoClient(process.env.AUTH_DB_URL,
 {
@@ -27,4 +29,12 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
+   plugins: [nextCookies()], 
+  advanced: {
+   
+    crossSubDomainCookies: {
+      enabled: true,
+      domain: process.env.NEXT_PUBLIC_APP_URL || "localhost",
+    },
+  }
 })

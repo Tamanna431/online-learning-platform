@@ -1,7 +1,7 @@
-/** @type {import('next').NextConfig} */
+// @type {import('next').NextConfig} */
 const nextConfig = {
-  
-  reactCompiler: true, 
-};
+  reactStrictMode: true,
+  // প্রয়োজন হলে অন্য কনফিগারেশন যোগ করুন
+}
 
-export default nextConfig;
+export default nextConfig
