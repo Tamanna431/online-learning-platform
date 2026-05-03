@@ -2,34 +2,61 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { authClient } from "@/lib/auth-client"
+import { useRouter, usePathname } from "next/navigation"
 
 export default function Navbar() {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
+  const pathname = usePathname()
+  const checkSession = async () => {
+    try {
+      const { data } = await authClient.getSession()
+      setUser(data?.user || null)
+    } catch (error) {
+      console.error("Session check error:", error)
+      setUser(null)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const { data } = await authClient.getSession()
-        setUser(data?.user || null)
-      } catch (error) {
-        console.error("Auth check error:", error)
-      } finally {
-        setLoading(false)
-      }
+    checkSession()
+  }, [pathname]) 
+  useEffect(() => {
+    const handleStorageChange = () => {
+      checkSession()
     }
 
-    checkAuth()
+    window.addEventListener('storage', handleStorageChange)
+    return () => window.removeEventListener('storage', handleStorageChange)
   }, [])
 
   const handleLogout = async () => {
     await authClient.signOut()
-    window.location.reload()
+    setUser(null)
+    router.push("/")
+    router.refresh()
+  }
+
+  if (loading) {
+    return (
+      <nav className="navbar bg-base-100 shadow-lg">
+        <div className="flex-1">
+          <Link href="/" className="btn btn-ghost text-xl font-bold">
+            🎓 SkillSphere
+          </Link>
+        </div>
+        <div className="flex-none">
+          <div className="loading loading-spinner loading-sm"></div>
+        </div>
+      </nav>
+    )
   }
 
   return (
     <nav className="navbar bg-base-100 shadow-lg sticky top-0 z-50">
-      
       {/* Logo */}
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-xl font-bold">
@@ -37,7 +64,7 @@ export default function Navbar() {
         </Link>
       </div>
 
-      {/* Center Menu */}
+      {/* Center Links */}
       <div className="flex-5 justify-center hidden sm:flex">
         <ul className="menu menu-horizontal px-1 gap-4">
           <li>
@@ -54,15 +81,27 @@ export default function Navbar() {
         </ul>
       </div>
 
-      {/* Right Side */}
+      {/* Right Side - Auth */}
       <div className="flex justify-end">
-        {loading ? (
-          <div className="loading loading-spinner loading-sm"></div>
-        ) : user ? (
+        {user ? (
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img alt="User avatar" src={user.image || "https://ui-avatars.com/api/?name=User"} />
+              <div className="w-10 rounded-full border-2 border-primary">
+                {user.image ? (
+                  <img 
+                    src={user.image} 
+                    alt={user.name}
+                    onError={(e) => {
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || "User")}&background=random`
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-primary/20 flex items-center justify-center">
+                    <span className="text-sm font-bold text-primary">
+                      {user.name?.charAt(0).toUpperCase()}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">

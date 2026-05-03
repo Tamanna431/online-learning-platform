@@ -39,6 +39,7 @@ export default function RegisterPage() {
       } else {
         toast.success("Registration successful! Please login.")
         router.push("/log-in")
+        router.refresh()
       }
     } catch (err) {
       toast.error("Something went wrong")
