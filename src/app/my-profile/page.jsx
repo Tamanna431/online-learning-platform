@@ -56,6 +56,8 @@ export default async function MyProfilePage() {
                     <Image
                       src={userImage}
                       alt="Profile"
+                      fill
+                      sizes="40"
                       className="w-full h-full object-cover rounded-full"
                     />
                   ) : (

@@ -58,6 +58,7 @@ export default function InstructorCard() {
                     src={instructor.image}
                     alt={instructor.name}
                     fill
+                    sizes="400"
                     className="rounded-full object-cover border-4 border-primary/20 group-hover:border-primary transition-colors"
                     loading="lazy"
                   />

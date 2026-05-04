@@ -3,7 +3,7 @@ import Link from "next/link"
  import { notFound, redirect } from "next/navigation"
  import { cookies } from "next/headers"
  import { auth } from "@/lib/auth"
- import Image from "next/image" 
+ import Image from "next/image" //
 import { 
   Star, Clock, User, BookOpen, CheckCircle, 
   ArrowLeft, Award, ShieldCheck 
@@ -15,7 +15,7 @@ export default async function CourseDetailsPage({ params }) {
    try {
     const session = await auth.api.getSession({
        headers: new Headers({
-         cookie: cookies().toString(),
+         cookie:(await cookies()).toString(),
        }),
      })
     
@@ -58,9 +58,10 @@ export default async function CourseDetailsPage({ params }) {
             
             {/* Hero Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-xl group">
-              <Image
+              <img
                 src={course.image} 
                 alt={course.title} 
+               
                 className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4">
