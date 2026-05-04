@@ -6,10 +6,10 @@ export const dynamic = "force-dynamic"
 
 
 const client = new MongoClient(process.env.AUTH_DB_URL,
-{
-  tls: true,
- 
-})
+  {
+    tls: true,
+
+  })
 const db = client.db("SkillSphere")
 
 export const auth = betterAuth({
@@ -17,12 +17,12 @@ export const auth = betterAuth({
   database: mongodbAdapter(db, {
     client
   }),
-  
-  emailAndPassword: { 
+
+  emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false 
+    requireEmailVerification: false
   },
-  
+
   //  Google OAuth Configuration
   socialProviders: {
     google: {
@@ -30,18 +30,18 @@ export const auth = betterAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
-   plugins: [nextCookies()], 
+  plugins: [nextCookies()],
   advanced: {
-   
+
     crossSubDomainCookies: {
       enabled: true,
-      domain: process.env.NEXT_PUBLIC_APP_URL || "localhost",
+      domain: "scintillating-salamander-01dbec.netlify.app",
     },
     trustedOrigins: [
-    "http://localhost:3000",
-    "http://localhost:3002",
-    "https://scintillating-salamander-01dbec.netlify.app",
-    process.env.NEXT_PUBLIC_BASE_URL,
-  ].filter(Boolean),
+      "http://localhost:3000",
+      "http://localhost:3002",
+      "https://scintillating-salamander-01dbec.netlify.app",
+      process.env.NEXT_PUBLIC_BASE_URL,
+    ].filter(Boolean),
   }
 })
