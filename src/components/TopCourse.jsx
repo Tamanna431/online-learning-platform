@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Star, User, Clock, ArrowRight, TrendingUp } from "lucide-react"
+import Image from "next/image"
 export default async function TopCourses() {
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
@@ -32,9 +33,10 @@ export default async function TopCourses() {
               className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <figure className="px-4 pt-4">
-                <img 
+                <Image 
                   src={course.image} 
                   alt={course.title} 
+                  fill
                   className="rounded-xl w-full h-48 object-cover"
                   loading="lazy" 
                 />

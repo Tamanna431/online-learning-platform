@@ -1,7 +1,27 @@
-// @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // প্রয়োজন হলে অন্য কনফিগারেশন যোগ করুন
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.postimg.cc",
+      },
+       {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+       {
+        protocol: "https",
+        hostname: "images.pexels.com",
+      },
+    ],
+  },
 }
 
 export default nextConfig

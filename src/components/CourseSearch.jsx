@@ -1,17 +1,16 @@
 "use client"
 import { Search, X } from "lucide-react"
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function CourseSearch() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const [query, setQuery] = useState("")
-
-  useEffect(() => {
-    setQuery(searchParams.get("search") || "")
-  }, [searchParams])
+ // const [query, setQuery] = useState("")
+const [query, setQuery] = useState(
+  searchParams.get("search") || ""
+)
 
   const handleSearch = (e) => {
     e.preventDefault()

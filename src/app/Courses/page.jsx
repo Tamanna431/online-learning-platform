@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Star, Clock, BookOpen, Search } from "lucide-react"
 import CourseSearch from "@/components/CourseSearch"
+import Image from "next/image"
 export default async function AllCoursesPage({ searchParams }) {
   const { search } = await searchParams
   const query = search || ""
@@ -44,9 +45,10 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
             {filtered.map(course => (
               <div key={course.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-base-300">
                 <figure className="px-4 pt-4">
-                  <img
+                  <Image
                     src={course.image}
                     alt={course.title}
+                    fill
                     className="rounded-xl w-full h-48 object-cover"
                     loading="lazy"
                     decoding="async"

@@ -1,7 +1,17 @@
-// src/components/Navbar.jsx
 import Link from "next/link"
 import { headers } from "next/headers"
+import { redirect } from "next/navigation" 
 import { auth } from "@/lib/auth"
+import Image from "next/image"
+
+async function handleLogout() {
+  "use server"
+  const headersList = await headers()
+  
+  await auth.api.signOut({ headers: headersList })
+  
+  redirect("/")
+}
 
 export default async function Navbar() {
 
@@ -10,6 +20,7 @@ export default async function Navbar() {
   const session = await auth.api.getSession({ headers: headersList })
 
   const user = session?.user || null
+  
 
   return (
     <nav className="navbar bg-base-100 shadow-lg sticky top-0 z-50">
@@ -48,9 +59,13 @@ export default async function Navbar() {
               <div className="w-10 rounded-full border-2 border-primary">
 
                 {(user.image || user.picture) ? (
-                  <img
+                  <Image
                     src={user.image || user.picture}
                     alt={user.name || "User"}
+                    width={40}
+                    height={40}
+                    sizes="40"
+                    className="rounded-full object-cover"
                   />
                 ) : (
                   <div className="w-full h-full bg-primary/20 flex items-center justify-center">
@@ -69,9 +84,9 @@ export default async function Navbar() {
                 <Link href="/my-profile">Profile</Link>
               </li>
               <li>
-                {/* Server logout */}
-                <form action="/api/auth/sign-out" method="POST">
-                  <button type="submit" className="text-error w-full text-left">
+                {/* ✅ Logout Form with Server Action */}
+                <form action={handleLogout}>
+                  <button type="submit" className="text-error w-full text-left hover:bg-base-200 rounded px-2 py-1 transition-colors">
                     Logout
                   </button>
                 </form>
@@ -80,8 +95,8 @@ export default async function Navbar() {
 
           </div>
         ) : (
-          <div className="flex gap-2">
-            <Link href="/log-in" className="btn btn-ghost">SignIn</Link>
+          <div className="flex gap-2 rounded-2xl">
+            <Link href="/log-in" className="btn btn-secondary">SignIn</Link>
             <Link href="/signUp" className="btn btn-primary">SignUp</Link>
           </div>
         )}

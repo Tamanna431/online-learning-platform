@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 import Link from 'next/link'
+import Image from 'next/image'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
@@ -91,11 +92,13 @@ export default function NewReleasesSlider() {
           {newReleases.map((course) => (
             <SwiperSlide key={course.id}>
               <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 h-full">
-                <figure className="relative">
-                  <img 
+                <figure className="relative w-full h-48">
+                  <Image 
                     src={course.image} 
                     alt={course.title}
-                    className="h-48 w-full object-cover"
+                    width={400}
+                    height={250}
+                    className="object-cover"
                   />
                   <span className="absolute top-3 left-3 badge badge-secondary text-white">
                     New

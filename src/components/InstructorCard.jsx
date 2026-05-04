@@ -1,6 +1,7 @@
 "use client"
 import { Star, Users, Award } from "lucide-react"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function InstructorCard() {
   const [instructors, setInstructors] = useState([])
@@ -52,11 +53,12 @@ export default function InstructorCard() {
             >
               {/* Instructor Image */}
               <figure className="px-6 pt-6">
-                <div className="relative">
-                  <img
+                <div className="relative w-32 h-32">
+                  <Image
                     src={instructor.image}
                     alt={instructor.name}
-                    className="w-32 h-32 rounded-full object-cover border-4 border-primary/20 group-hover:border-primary transition-colors"
+                    fill
+                    className="rounded-full object-cover border-4 border-primary/20 group-hover:border-primary transition-colors"
                     loading="lazy"
                   />
                   <div className="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full">

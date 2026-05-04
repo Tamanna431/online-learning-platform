@@ -2,7 +2,8 @@
 import Link from "next/link"
  import { notFound, redirect } from "next/navigation"
  import { cookies } from "next/headers"
- import { auth } from "@/lib/auth" 
+ import { auth } from "@/lib/auth"
+ import Image from "next/image" 
 import { 
   Star, Clock, User, BookOpen, CheckCircle, 
   ArrowLeft, Award, ShieldCheck 
@@ -57,7 +58,7 @@ export default async function CourseDetailsPage({ params }) {
             
             {/* Hero Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-xl group">
-              <img 
+              <Image
                 src={course.image} 
                 alt={course.title} 
                 className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"

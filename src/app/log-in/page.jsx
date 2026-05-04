@@ -16,7 +16,7 @@ export default function LoginPage() {
     setLoading(true)
 
     try {
-      const { data, error } = await authClient.signIn.email({
+      const { error } = await authClient.signIn.email({
         email,
         password,
       })
@@ -52,14 +52,17 @@ export default function LoginPage() {
       
       <div className="card bg-base-100 shadow-2xl w-full max-w-md">
         <div className="card-body p-8">
+
           <h1 className="text-3xl font-bold text-center mb-2">
             Login to <span className="text-primary">SkillSphere</span>
           </h1>
+
           <p className="text-center text-base-content/70 mb-6">
             Welcome back! Continue your learning journey.
           </p>
 
           <form onSubmit={handleEmailLogin} className="space-y-4">
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -109,12 +112,14 @@ export default function LoginPage() {
             Continue with Google
           </button>
 
+          {/* ✅ FIXED PART */}
           <p className="text-center text-sm mt-4">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/signUp" className="text-primary font-semibold">
               Register here
             </Link>
           </p>
+
         </div>
       </div>
     </div>
