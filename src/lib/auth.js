@@ -37,5 +37,10 @@ export const auth = betterAuth({
       enabled: true,
       domain: process.env.NEXT_PUBLIC_APP_URL || "localhost",
     },
+    trustedOrigins: [
+    "http://localhost:3000",
+    "http://localhost:3002",
+    "https://scintillating-salamander-01dbec.netlify.app" // লাইভ সাইটের URL
+  ],
   }
 })
