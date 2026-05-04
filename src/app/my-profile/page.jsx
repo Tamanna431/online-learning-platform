@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { headers } from "next/headers"
 import { auth } from "@/lib/auth"
 import Image from "next/image"
+export const dynamic = 'force-dynamic';
 
 export default async function MyProfilePage() {
 
