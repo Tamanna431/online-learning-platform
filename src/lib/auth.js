@@ -12,36 +12,66 @@ const client = new MongoClient(process.env.AUTH_DB_URL,
   })
 const db = client.db("SkillSphere")
 
+// export const auth = betterAuth({
+//   secret: process.env.BETTER_AUTH_SECRET,
+//   database: mongodbAdapter(db, {
+//     client
+//   }),
+
+//   emailAndPassword: {
+//     enabled: true,
+//     requireEmailVerification: false
+//   },
+
+//   //  Google OAuth Configuration
+//   socialProviders: {
+//     google: {
+//       clientId: process.env.GOOGLE_CLIENT_ID,
+//       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//     },
+//   },
+//   plugins: [nextCookies()],
+//   advanced: {
+
+//     crossSubDomainCookies: {
+//       enabled: true,
+//       domain: "https://assignment-8-delta-ten.vercel.app",
+//     },
+//     trustedOrigins: [
+//       "http://localhost:3000",
+//       "http://localhost:3002",
+//       "https://assignment-8-delta-ten.vercel.app",
+//       process.env.NEXT_PUBLIC_BASE_URL,
+//     ].filter(Boolean),
+//   }
+// })
+
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET,
-  database: mongodbAdapter(db, {
-    client
-  }),
+
+  database: mongodbAdapter(db, { client }),
 
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false
+    requireEmailVerification: false,
   },
 
-  //  Google OAuth Configuration
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     },
   },
-  plugins: [nextCookies()],
-  advanced: {
 
-    crossSubDomainCookies: {
-      enabled: true,
-      domain: "scintillating-salamander-01dbec.netlify.app",
-    },
+  plugins: [nextCookies()],
+
+  advanced: {
     trustedOrigins: [
       "http://localhost:3000",
       "http://localhost:3002",
-      "https://scintillating-salamander-01dbec.netlify.app",
-      process.env.NEXT_PUBLIC_BASE_URL,
-    ].filter(Boolean),
-  }
+      "https://assignment-8-delta-ten.vercel.app",
+    ],
+
+    // ❌ REMOVE crossSubDomainCookies completely
+  },
 })
