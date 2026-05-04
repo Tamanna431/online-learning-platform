@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**My project name:SkillSphere--online learning platform
+**About my project
+SkillSphere is a modern online learning platform where users can explore courses, watch lessons,and enrolled in skill-based programs like Web Development,Design and marketing.The platform is fully responsive,secure and built for a smooth,error-free learning experience.
 
-## Getting Started
+**live kink demo:https://scintillating-salamander-01dbec.netlify.app/
 
-First, run the development server:
+** Key Feature**
+*Home page:Hero banner/slider,top-rated courses,learning tips and trending courses and top instructor section.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+*ALL Courses Page:Browser all variable courses with a real-time search bar to filter by title..
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*Protected Routes:Course details are only visible to logged-in user.Automatically redirects to log in if not auth and returns to the course after login.
+*Authentication:Email & password /registration +google social loging using.
+*My Profile:View logged in user data and easily updated name &profile picture url.
+Smooth UX:Toast notifications,loading spinner during data fetch,custom 404 page andzero crases on page reload.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Fully Responsive and secure.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Teck Stack &Packages
+**Framework:Next.js(App router)
+*Styling:TailwindCSS + daisyUI/heroUI
+*Authentication :BetterAuth
+Silder: Swiper.js
+Hosting:vercel
+**How to run locally
+git clone the repo:https://github.com/Tamanna431/online-learning-platform
